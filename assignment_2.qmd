@@ -38,7 +38,6 @@ You can add options to executable code like this
 The `echo: false` option disables the printing of code (only output is displayed).
 
 ```{r}
-{r}
 hoyde <- modelr::heights
 hoyde <- hoyde %>%
 mutate(
@@ -54,12 +53,10 @@ breaks = c(0, 12, 14, 16, 21),
 labels = c("not_hs", "not_cc", "not_col", "col_plus"),
 right = FALSE
 )
-) |>
-# reorganiserer data s.a. de fire faktor-variablerne kommer
-# lengst til høyre
-select(income:age, education:bmi, everything()) |>
-# Dropper marital og education siden disse ikke skal brukes
-select(-education, -marital)
+)
+```
+
+```{r}
 # Inntekt lik 0
 hoydeZeroInc <- hoyde |>
 filter(income == 0)
@@ -68,27 +65,117 @@ hoydeNormInc <- hoyde |>
 filter(income > 0 & income < 343830)
 hoydeHighInc <- hoyde |>
 filter(income == 343830)
-
 ```
 
 ```{r}
-hoyde <- hoyde %>%
-edu_fac = cut(
-x = education,
-breaks = c(0, 12, 14, 16, 21),
-labels = c("not_hs", "not_cc",
-"not_col", "col_plus"),
-right = FALSE
+hoyde |>
+ggplot(
+mapping = aes(
+x = height,
+y = income
 )
+) +
+geom_jitter(
+size = 1,
+alpha = 0.40
+) +
+geom_smooth(
+formula = y ~ x,
+method = "lm",
+colour = "black",
+lwd = 0.75,
+se = FALSE
 )
 ```
 
 ```{r}
-ggplot(hoyde, aes(
+hoydeNormInc |>
+ggplot(
+mapping = aes(
+x = height,
+y = income
+)
+) +
+geom_jitter(
+size = 1,
+alpha = 0.40
+) +
+geom_smooth(
+formula = y ~ x,
+method = "lm",
+colour = "black",
+lwd = 0.75,
+se = FALSE
+)
+```
+
+```{r}
+meanHeightMale <- hoyde |>
+filter(sex == 'male') %>%
+select(height) |>
+# konverterer en tibble med 3402 rekker og 1 kolonne
+# til en vektor med 3402 elementer siden mean() forlanger en
+# vektor som input
+pull() |>
+# finner gjennomsnittet av verdiene i vektoren
+mean()
+meanHeightFemale <- hoyde |>
+filter(sex == 'female') %>%
+select(height) |>
+pull() |>
+mean()
+# standard deviation
+sdHeightMale <- hoyde |>
+filter(sex == 'male') |>
+select(height) |>
+pull() |>
+sd()
+sdHeightFemale <- hoyde |>
+filter(sex == 'female') |>
+select(height) |>
+pull() |>
+sd()
+```
+
+```{r}
+ggplot(hoydeNormInc, aes(
   x = edu_fac,
   y = income
+)) +
+  geom_jitter(alpha = 0.5) +
+  geom_smooth(method = "lm")
+```
+
+```{r}
+ggplot(hoydeNormInc, aes(
+  x = height,
+  y = income
 )
-)
+) +
 geom_point() +
   facet_wrap(~edu_fac)
+
+```
+
+```{r}
+na <- is.na(hoyde)
+```
+
+```{r}
+hoydeNormInc |>
+  filter(!is.na(edu_fac)) |> 
+ggplot(
+mapping = aes(
+x = edu_fac,
+y = income,
+colour = edu_fac
+)
+) +
+geom_jitter(
+size = 1,
+alpha = 0.40
+) +
+geom_smooth(
+method = "lm"
+)
 ```
