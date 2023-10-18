@@ -179,3 +179,46 @@ geom_smooth(
 method = "lm"
 )
 ```
+
+```{r}
+hoydeNormInc |>
+  filter(!is.na(edu_fac)) |> 
+ggplot(
+mapping = aes(
+x = edu_fac,
+y = height,
+colour = edu_fac
+)
+) +
+geom_jitter(
+size = 1,
+alpha = 0.40
+)
+```
+
+```{r}
+hoydeNormInc |>
+  filter(!is.na(edu_fac)) |> 
+ggplot(
+mapping = aes(
+x = height,
+y = income,
+colour = edu_fac
+)
+) +
+geom_jitter(
+size = 1,
+alpha = 0.40
+) +
+  facet_wrap(~edu_fac)
+```
+
+```{r}
+hoydeZeroInc |>
+st("sex")
+```
+
+```{r}
+hoydeHighInc |>
+st("sex")
+```
