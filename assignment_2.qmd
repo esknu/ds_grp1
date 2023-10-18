@@ -6,38 +6,17 @@ editor: visual
 
 ```{r}
 #| label: setup
-
+#| echo: false
+#| output: false
 library(tidyverse)
 library(vtable)
 
 ```
 
-#\|
-
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document.
-To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code.
-You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
 The `echo: false` option disables the printing of code (only output is displayed).
 
 ```{r}
+#| echo: false
 hoyde <- modelr::heights
 hoyde <- hoyde %>%
 mutate(
@@ -57,6 +36,7 @@ right = FALSE
 ```
 
 ```{r}
+#| echo: false
 # Inntekt lik 0
 hoydeZeroInc <- hoyde |>
 filter(income == 0)
@@ -68,6 +48,7 @@ filter(income == 343830)
 ```
 
 ```{r}
+#| echo: false
 hoyde |>
 ggplot(
 mapping = aes(
@@ -89,6 +70,7 @@ se = FALSE
 ```
 
 ```{r}
+#| echo: false
 hoydeNormInc |>
 ggplot(
 mapping = aes(
@@ -110,6 +92,7 @@ se = FALSE
 ```
 
 ```{r}
+#| echo: false
 meanHeightMale <- hoyde |>
 filter(sex == 'male') %>%
 select(height) |>
@@ -138,6 +121,7 @@ sd()
 ```
 
 ```{r}
+#| echo: false
 ggplot(hoydeNormInc, aes(
   x = edu_fac,
   y = income
@@ -147,6 +131,7 @@ ggplot(hoydeNormInc, aes(
 ```
 
 ```{r}
+#| echo: false
 ggplot(hoydeNormInc, aes(
   x = height,
   y = income
@@ -162,6 +147,7 @@ na <- is.na(hoyde)
 ```
 
 ```{r}
+#| echo: false
 hoydeNormInc |>
   filter(!is.na(edu_fac)) |> 
 ggplot(
@@ -181,6 +167,7 @@ method = "lm"
 ```
 
 ```{r}
+#| echo: false
 hoydeNormInc |>
   filter(!is.na(edu_fac)) |> 
 ggplot(
@@ -197,6 +184,7 @@ alpha = 0.40
 ```
 
 ```{r}
+#| echo: false
 hoydeNormInc |>
   filter(!is.na(edu_fac)) |> 
 ggplot(
@@ -214,11 +202,39 @@ alpha = 0.40
 ```
 
 ```{r}
+#| echo: false
 hoydeZeroInc |>
 st("sex")
 ```
 
 ```{r}
+#| echo: false
 hoydeHighInc |>
 st("sex")
+```
+
+```{r}
+#| echo: false
+hoyde |> 
+  st()
+```
+
+VIDERE
+
+```{r}
+#| echo: false
+hoydeZeroInc |> 
+  st(c("height", "edu_fac"))
+```
+
+```{r}
+#| echo: false
+hoydeNormInc |> 
+  st(c("height", "edu_fac"))
+```
+
+```{r}
+#| echo: false
+hoydeHighInc |> 
+  st(c("height", "edu_fac"))
 ```
