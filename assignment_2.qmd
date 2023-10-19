@@ -53,6 +53,8 @@ Dette skyldes at høyere mennesker har større sannsynlighet for å ha nådd sit
 
 The `echo: false` option disables the printing of code (only output is displayed).
 
+## EDA av datasettet heights med utgangspunkt i sammenheng mellom utdanning og inntekt
+
 ```{r}
 #| echo: false
 hoyde <- modelr::heights
