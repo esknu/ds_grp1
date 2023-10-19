@@ -260,21 +260,21 @@ hoyde |>
 ```
 
 ```{r}
-ggplot() +
-  geom_point(data = hoyde, mapping = aes(x = education, y = height, colour = factor(income_class)))
+hoyde |> ggplot() +
+  geom_point(data = hoyde, mapping = aes(x = education, y = height, colour = factor(income_class), shape = sex))
 ```
 
 ```{r}
 hoydeNormInc |> 
-  st(c("height", "education"))
+  st(c("height", "education", "sex"))
 ```
 
 ```{r}
 hoydeHighInc |> 
-  st(c("height", "education"))
+  st(c("height", "education", "sex"))
 ```
 
 ```{r}
 hoydeZeroInc |> 
-  st(c("height", "education"))
+  st(c("height", "education", "sex"))
 ```
