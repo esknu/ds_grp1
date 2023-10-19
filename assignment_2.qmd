@@ -15,6 +15,47 @@ library(vtable)
 
 ```
 
+# Innledning
+
+I denne oppgaven har vi sett på sammenhengen mellom utdanning og inntekt, høyde og inntekt, utdanning og høyde, fordeling mellom menn og kvinner i ulike inntektsgrupper i forhold til høyde, men også fordelingen mellom menn og kvinner.
+De ulike inntektsgruppene er nullinntekt (hoydeZeroInc), normalinntekt (hoydeNormInc), høyinntekt (hoydeHighInc).Videre ser vi på hvordan observasjoner i hoydeZeroInc og hoydeHighInc skiller seg ut i forhold til hoydeNormInc når det kommer til høyde og utdanning.
+
+## Litteraturgjennomgang
+
+### Utdanning og inntekt
+
+Når det kommer til sammenheng mellom utdanning og inntekt, viser det seg at menn som ikke ble uteksaminert på fra videregående en halv tomme (1,27 cm) kortere enn gjennomsnittet, og er mer enn en tomme (2,54 cm) kortere enn en gjennomsnittlig høyskoleutdannet mann [@Deaton&Arora2009].
+Når det kommer til kvinner, er forskjellen litt mindre [@Deaton&Arora2009].
+
+Så hvorfor har høyere mennesker bedre utdanning og høyere inntekt?
+
+Ifølge @Case&Paxson2008 så har høyere mennesker større mulighet for å ha nådd sitt fulle kognitive potensiale enn lavere personer.
+Alt henger sammen med barndommen og hvor godt ernært et barn er gjennom hele barndommen.
+I tillegg henger det sammen med om barnet har vært skånet for barnesykdommer som har hatt potensialet til å bremse utviklingen i forhold til høyde.
+Har ikke barnet vært sykt, så vil de nå voksenhøyden som ligger i genet deres [@Case&Paxson2008].
+I tillegg nevner @Case&Paxson2008 at det er en sammenheng mellom utvikling kognitivt og fysisk.
+ Det vil si at et barn som ikke har nådd sin fulle mulige høyde, har heller ikke utviklet sitt fulle kognitive potensiale.
+Det er nemlig barn som mangler full kognitiv utvikling som står for lavere utdanningsnivå og lavere inntekt i voksen alder [@Case&Paxson2008].
+
+Vår hypotese er at det er sammenheng mellom utdanning og inntekt.
+
+### Høyde og inntekt
+
+Når det kommer til forholdet mellom høyde og inntekt, har @Deaton&Arora2009 hentet data fra Gallup-Healthways Well-Being Index for å se på forholdet mellom høyde og inntekt.
+Ifølge @Deaton&Arora2009, var menn som var over gjennomsnittlig høyde (177,8 cm) et trinn på stigen over menn som er under gjennomsnittlig høyde) For kvinner er forskjellen mindre.
+Kvinner under gjennomsnittlig høyde (162,6 cm) ligger litt mindre enn en tidel av et trinn under kvinner med over gjennomsnittlig høyde.
+Forskjellene kan virke små, men sammenlignet med faktorer som påvirker stigen, er inntekt en utgjørende faktor [@Deaton&Arora2009].
+Øker vi høyden med en ekstra tomme på den såkalt stigen med effekten av en endring i inntekt, så vil hver ekstra tomme høyde ha samme effekt som en økning på 3,8% i familie inntekt for kvinner og 4,4% økning for menn.
+
+Vår hypotese er at det ikke er sammenheng mellom høyde og inntekt.
+
+### Utdanning og høyde
+
+Ifølge @Case&Paxson2008, er det sammenheng mellom utdanning og høyde som fører til økt inntekt.
+Dette skyldes at høyere mennesker har større sannsynlighet for å ha nådd sitt fulle kognitive potensial enn lavere personer [@Case&Paxson2008].
+
+Vår hypotese er at det ikke er sammenheng mellom utdanning og høyde.
+
 The `echo: false` option disables the printing of code (only output is displayed).
 
 ```{r}
