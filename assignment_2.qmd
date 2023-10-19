@@ -192,7 +192,7 @@ hoydeNormInc |>
   filter(!is.na(edu_fac)) |> 
 ggplot(
 mapping = aes(
-x = edu_fac,
+x = education,
 y = income,
 colour = edu_fac
 )
@@ -202,7 +202,11 @@ size = 1,
 alpha = 0.40
 ) +
 geom_smooth(
-method = "lm"
+formula = y ~ x,
+method = "lm",
+colour = "black",
+lwd = 0.75,
+se = FALSE
 )
 ```
 
