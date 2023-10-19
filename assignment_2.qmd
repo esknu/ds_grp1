@@ -258,3 +258,23 @@ hoyde |>
   )) +
   geom_jitter(alpha = 0.2)
 ```
+
+```{r}
+ggplot() +
+  geom_point(data = hoyde, mapping = aes(x = education, y = height, colour = factor(income_class)))
+```
+
+```{r}
+hoydeNormInc |> 
+  st(c("height", "education"))
+```
+
+```{r}
+hoydeHighInc |> 
+  st(c("height", "education"))
+```
+
+```{r}
+hoydeZeroInc |> 
+  st(c("height", "education"))
+```
