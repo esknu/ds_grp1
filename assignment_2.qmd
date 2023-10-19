@@ -2,6 +2,8 @@
 title: "assignment_2"
 format: html
 editor: visual
+bibliography: [ds_grp1.bib]
+Author: Espen Knutsen, Marius Martinussen og René Rødde Bracci
 ---
 
 ```{r}
