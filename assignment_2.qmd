@@ -186,6 +186,14 @@ geom_point() +
 na <- is.na(hoyde)
 ```
 
+Datasettet er kalt heights og er en del av pakken modelr, Wickham (2020), som er en utvidelspakke for statistikksystemet R, R Core Team (2021).
+Vi skal nå gjennomføre en EDA av datasettet med utgangspunkt i vår problemstilling som er sammenhengen mellom utdanning og inntekt ved bruk av kategorivariabel edu_fac:
+
+-   not_hs: 0-11 års utdanning
+-   not_cc: 11-14 års utdanning
+-   not_col: 14-16 års utdanning
+-   col_plus: 16-21 års utdanning
+
 ```{r}
 #| echo: false
 hoydeNormInc |>
@@ -210,22 +218,10 @@ se = FALSE
 )
 ```
 
-```{r}
-#| echo: false
-hoydeNormInc |>
-  filter(!is.na(edu_fac)) |> 
-ggplot(
-mapping = aes(
-x = edu_fac,
-y = height,
-colour = edu_fac
-)
-) +
-geom_jitter(
-size = 1,
-alpha = 0.40
-)
-```
+Vi ser at det er en sammenheng mellom inntekt og utdannelse.
+I figuren over ser vi at den linære regresjonslinjen viser en økning i inntekt for gitt lenger utdanning.
+
+Videre skal vi ved hjelp av fasetter se på om det finnes en sammenheng mellom høyde og inntekt i forhold til hvilken utdanningsgruppe man er i.
 
 ```{r}
 #| echo: false
@@ -250,6 +246,33 @@ lwd = 0.75,
 se = FALSE
 ) +
   facet_wrap(~edu_fac)
+```
+
+Av fasettene ser man at de ulike utdanningsgruppene reagerer ulikt på hvordan høyde påvirker hvilke inntekt man har.
+Vi kan se av den linjere regresjonslinjen i de ulike farsettene at en lavere utdannelsegruppe har et lavere "startpunkt" for inntekt, hvor dette gradvis øker om man er høyere.
+
+Det som skiller seg mest klart ut i de fire fasetene er at "not_hs" har en relativt flat linjer regresjonslinje, som tolkes til at dersom man ikke har fullført high school vil ikke man øke markant i inntekt dersom man er høyere.
+
+Vi ser også at i utdanningsgruppen "col_plus" er stigningstallet til den linjere regresjonslinjen brattere, og kan tolkes til at dersom man i denne katogorivariabelen vil man ha en større økning i inntekt i forhold til økning i høyde.
+
+Ser man på de to gjennverende katogorivariablene "not_cc" og "not_col" skiller ikke disse linjære regrisjonslinjene seg betraktelige fra hverandre i forhold til at man øker i inntekt gitt at man øker i høyde.
+Man ser av disse variablene at det er en økning i inntekt dersom man er høyere, men hvilke av de to utdanningsgruppene man er i har en større påvirkning på hvilke inntekt man har.
+
+```{r}
+#| echo: false
+hoydeNormInc |>
+  filter(!is.na(edu_fac)) |> 
+ggplot(
+mapping = aes(
+x = edu_fac,
+y = height,
+colour = edu_fac
+)
+) +
+geom_jitter(
+size = 1,
+alpha = 0.40
+)
 ```
 
 ```{r}
