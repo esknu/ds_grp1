@@ -165,16 +165,29 @@ div.csl-indent {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>na <span class="ot">&lt;-</span> <span class="fu">is.na</span>(hoyde)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Datasettet er kalt heights og er en del av pakken modelr, Wickham (2020), som er en utvidelspakke for statistikksystemet R, R Core Team (2021). Vi skal nå gjennomføre en EDA av datasettet med utgangspunkt i vår problemstilling som er sammenhengen mellom utdanning og inntekt ved bruk av kategorivariabel edu_fac:</p>
+<ul>
+<li>not_hs: 0-11 års utdanning</li>
+<li>not_cc: 11-14 års utdanning</li>
+<li>not_col: 14-16 års utdanning</li>
+<li>col_plus: 16-21 års utdanning</li>
+</ul>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="assignment_2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Vi ser at det er en sammenheng mellom inntekt og utdannelse. I figuren over ser vi at den linære regresjonslinjen viser en økning i inntekt for gitt lenger utdanning.</p>
+<p>Videre skal vi ved hjelp av fasetter se på om det finnes en sammenheng mellom høyde og inntekt i forhold til hvilken utdanningsgruppe man er i.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="assignment_2_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Av fasettene ser man at de ulike utdanningsgruppene reagerer ulikt på hvordan høyde påvirker hvilke inntekt man har. Vi kan se av den linjere regresjonslinjen i de ulike farsettene at en lavere utdannelsegruppe har et lavere “startpunkt” for inntekt, hvor dette gradvis øker om man er høyere.</p>
+<p>Det som skiller seg mest klart ut i de fire fasetene er at “not_hs” har en relativt flat linjer regresjonslinje, som tolkes til at dersom man ikke har fullført high school vil ikke man øke markant i inntekt dersom man er høyere.</p>
+<p>Vi ser også at i utdanningsgruppen “col_plus” er stigningstallet til den linjere regresjonslinjen brattere, og kan tolkes til at dersom man i denne katogorivariabelen vil man ha en større økning i inntekt i forhold til økning i høyde.</p>
+<p>Ser man på de to gjennverende katogorivariablene “not_cc” og “not_col” skiller ikke disse linjære regrisjonslinjene seg betraktelige fra hverandre i forhold til at man øker i inntekt gitt at man øker i høyde. Man ser av disse variablene at det er en økning i inntekt dersom man er høyere, men hvilke av de to utdanningsgruppene man er i har en større påvirkning på hvilke inntekt man har.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="assignment_2_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
@@ -1022,7 +1035,7 @@ div.csl-indent {
 </div>
 <p>I fordelingen “hoydeZeroInc” ser man at man totalt har 1740 observasjoner, med 8 NA verdier tilknyttet utdanning. Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 66inc eller 167.64cm med et standaravvik på 4.1 inc eller 10.414cm, mens gjennomsnittlig utdanningsnivå er 12år med et standaravvik på 2.4 år.</p>
 <p>Ser man da tilbake på plottet som ble presantert lengre oppe ser man at med faktiske tall vil plottet være representativt. “hoydeHightInc” skiller seg i den forstand fra “hoydeNormInc” i forhold til utdanning &amp; høyde at man er høyere utdannet og høyere. Man er i “hoydeHighInc” 10,16 cm høyere og 4 år høyere utdannet enn “hoydeNormInc” gjennomsnittslig. Når det kommer til “hoydeZeroInc” skiller dette seg fra “hoydeNormInc” i den forstand at man gjennomsnittslig er 2,54cm lavere og 1 år lavere utdannet.</p>
-<p>Vi kan med utgangspunkt i disse observarsjonene sett vekk i fra andre faktorer se at utdanning &amp; høyde har en innvirkning på hvilke inntekt mann har. Høyere høyde &amp; utdanning vil gi en effekt i økt inntekt.</p>
+<p>Vi kan med utgangspunkt i disse observarsjonene sett vekk i fra andre faktorer se at utdanning &amp; høyde har en innvirkning på hvilke inntekt mann har. Høyere høyde &amp; utdanning vil gi en effekt i økt inntekt. .</p>
 
 </section>
 </section>
