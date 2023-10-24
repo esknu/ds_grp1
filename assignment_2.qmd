@@ -352,4 +352,3 @@ Når det kommer til "hoydeZeroInc" skiller dette seg fra "hoydeNormInc" i den fo
 
 Vi kan med utgangspunkt i disse observarsjonene sett vekk i fra andre faktorer se at utdanning & høyde har en innvirkning på hvilke inntekt mann har.
 Høyere høyde & utdanning vil gi en effekt i økt inntekt.
-.
