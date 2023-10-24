@@ -303,6 +303,17 @@ hoyde |>
   geom_jitter(alpha = 0.2)
 ```
 
+I fordelingen "hoydeHighInc" ser man et markant skille i fordelingen i menn og kvinner.
+Menn utgjør 92% av fordelingen "hoydeHighInc", mens kvinner utgjør 8% av fordelingen.
+
+I fordelingen "hoydeZeroInc" ser man at fordelingen mellom kvinner og menn er 43% menn og 57% Kvinner som utgjør fordelingen.
+
+Plottet under er ment som en ildustrasjon av hvordan "hoydeHightInc"(rød), "hoydeZeroInc"(blå) skiller seg fra "hoydeNormInc" med utgangspunkt i høyde & utdanning.
+Dette plottet er ikke 100% representativt for fordelingene ettersom man ikke får plottet alle observarsjonene, men fungerer godt som en indikator for å vise skille i utdanning & høyde.
+Man ser at dersom man er i fordelingen "hoydeZeroInc" skorer majoriteten av observasjonene lavest på utdanning & høyde, mens man i "hoydeNormInc" skorer en større del av observasjonene høyere på utdanning & høyde enn "hoydeZeroInc".
+Når det kommer til "hoydeHighInc" skorer denne klarest høyst på utdanning & høyde.
+Vi vil seinere i oppgaven se nærmere på dette i faktiske tall.
+
 ```{r}
 hoyde |> ggplot() +
   geom_point(data = hoyde, mapping = aes(x = education, y = height, colour = factor(income_class), shape = sex))
@@ -313,12 +324,31 @@ hoydeNormInc |>
   st(c("height", "education", "sex"))
 ```
 
+I fordelingen "hoydeNormInc" ser man at man totalt har 5123 observasjoner med 2 NA verdier i forhold til utdanning.
+Denne fordelingen har klart mest observasjoner som er naturlig for et slikt datasett.
+Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 67inc eller 170.18cm, mens gjennomsnittlig utdanningsnivå er 13år.
+
 ```{r}
 hoydeHighInc |> 
   st(c("height", "education", "sex"))
 ```
 
+I fordelingen "hoydeNormInc" ser man at man totalt har 143 observasjoner.
+Denne fordelingen har klart minst observasjoner av naturlige årsaker.
+Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 71inc eller 180.34cm med et standaravvik på 3.1 inc eller 7.874cm, mens gjennomsnittlig utdanningsnivå er 17år med et standaravvik på 2.4år.
+
 ```{r}
 hoydeZeroInc |> 
   st(c("height", "education", "sex"))
 ```
+
+I fordelingen "hoydeZeroInc" ser man at man totalt har 1740 observasjoner, med 8 NA verdier tilknyttet utdanning.
+Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 66inc eller 167.64cm med et standaravvik på 4.1 inc eller 10.414cm, mens gjennomsnittlig utdanningsnivå er 12år med et standaravvik på 2.4 år.
+
+Ser man da tilbake på plottet som ble presantert lengre oppe ser man at med faktiske tall vil plottet være representativt.
+"hoydeHightInc" skiller seg i den forstand fra "hoydeNormInc" i forhold til utdanning & høyde at man er høyere utdannet og høyere.
+Man er i "hoydeHighInc" 10,16 cm høyere og 4 år høyere utdannet enn "hoydeNormInc" gjennomsnittslig.
+Når det kommer til "hoydeZeroInc" skiller dette seg fra "hoydeNormInc" i den forstand at man gjennomsnittslig er 2,54cm lavere og 1 år lavere utdannet.
+
+Vi kan med utgangspunkt i disse observarsjonene sett vekk i fra andre faktorer se at utdanning & høyde har en innvirkning på hvilke inntekt mann har.
+Høyere høyde & utdanning vil gi en effekt i økt inntekt.
