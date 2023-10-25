@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -139,32 +105,6 @@ div.csl-indent {
 </section>
 <section id="eda-av-datasettet-heights-med-utgangspunkt-i-sammenheng-mellom-utdanning-og-inntekt" class="level2">
 <h2 class="anchored" data-anchor-id="eda-av-datasettet-heights-med-utgangspunkt-i-sammenheng-mellom-utdanning-og-inntekt">EDA av datasettet heights med utgangspunkt i sammenheng mellom utdanning og inntekt</h2>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>na <span class="ot">&lt;-</span> <span class="fu">is.na</span>(hoyde)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>Datasettet er kalt heights og er en del av pakken modelr, Wickham (2020), som er en utvidelspakke for statistikksystemet R, R Core Team (2021). Vi skal nå gjennomføre en EDA av datasettet med utgangspunkt i vår problemstilling som er sammenhengen mellom utdanning og inntekt ved bruk av kategorivariabel edu_fac:</p>
 <ul>
 <li>not_hs: 0-11 års utdanning</li>
@@ -174,25 +114,26 @@ div.csl-indent {
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="assignment_2_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Vi ser at det er en sammenheng mellom inntekt og utdannelse. I figuren over ser vi at den linære regresjonslinjen viser en økning i inntekt for gitt lenger utdanning.</p>
 <p>Videre skal vi ved hjelp av fasetter se på om det finnes en sammenheng mellom høyde og inntekt i forhold til hvilken utdanningsgruppe man er i.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="assignment_2_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Av fasettene ser man at de ulike utdanningsgruppene reagerer ulikt på hvordan høyde påvirker hvilke inntekt man har. Vi kan se av den linjere regresjonslinjen i de ulike farsettene at en lavere utdannelsegruppe har et lavere “startpunkt” for inntekt, hvor dette gradvis øker om man er høyere.</p>
 <p>Det som skiller seg mest klart ut i de fire fasetene er at “not_hs” har en relativt flat linjer regresjonslinje, som tolkes til at dersom man ikke har fullført high school vil ikke man øke markant i inntekt dersom man er høyere.</p>
 <p>Vi ser også at i utdanningsgruppen “col_plus” er stigningstallet til den linjere regresjonslinjen brattere, og kan tolkes til at dersom man i denne katogorivariabelen vil man ha en større økning i inntekt i forhold til økning i høyde.</p>
-<p>Ser man på de to gjennverende katogorivariablene “not_cc” og “not_col” skiller ikke disse linjære regrisjonslinjene seg betraktelige fra hverandre i forhold til at man øker i inntekt gitt at man øker i høyde. Man ser av disse variablene at det er en økning i inntekt dersom man er høyere, men hvilke av de to utdanningsgruppene man er i har en større påvirkning på hvilke inntekt man har.</p>
+<p>Ser man på de to gjennverende katogorivariablene “not_cc” og “not_col” skiller ikke disse linjære regrisjonslinjene seg betraktelige fra hverandre i forhold til at man øker i inntekt gitt at man øker i høyde. Man ser av disse variablene at det er en økning i inntekt dersom man er høyere utdannet.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="assignment_2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>Fordelingen av menn &amp; kvinner “hoydeZeroInc”</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
@@ -226,6 +167,7 @@ div.csl-indent {
 
 </div>
 </div>
+<p>Fordelingen av menn &amp; kvinner “hoydehighInc”</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
@@ -259,556 +201,24 @@ div.csl-indent {
 
 </div>
 </div>
+<p>Plottet under er en illustrasjon av hvilke innktekt “highinc”, “norminc” og “zeroinc” har, hvor vi skal videre se på hvilke andel menn &amp; kvinner som utgjør de ulike innteksgruppene.</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">income</td>
-<td style="text-align: left;">7006</td>
-<td style="text-align: left;">41204</td>
-<td style="text-align: left;">55892</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">166</td>
-<td style="text-align: left;">55000</td>
-<td style="text-align: left;">343830</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">height</td>
-<td style="text-align: left;">7006</td>
-<td style="text-align: left;">67</td>
-<td style="text-align: left;">4.1</td>
-<td style="text-align: left;">52</td>
-<td style="text-align: left;">64</td>
-<td style="text-align: left;">70</td>
-<td style="text-align: left;">84</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">weight</td>
-<td style="text-align: left;">6911</td>
-<td style="text-align: left;">188</td>
-<td style="text-align: left;">44</td>
-<td style="text-align: left;">76</td>
-<td style="text-align: left;">157</td>
-<td style="text-align: left;">212</td>
-<td style="text-align: left;">524</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age</td>
-<td style="text-align: left;">7006</td>
-<td style="text-align: left;">51</td>
-<td style="text-align: left;">2.2</td>
-<td style="text-align: left;">47</td>
-<td style="text-align: left;">49</td>
-<td style="text-align: left;">53</td>
-<td style="text-align: left;">56</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">marital</td>
-<td style="text-align: left;">7006</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... single</td>
-<td style="text-align: left;">1124</td>
-<td style="text-align: left;">16%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... married</td>
-<td style="text-align: left;">3806</td>
-<td style="text-align: left;">54%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... separated</td>
-<td style="text-align: left;">366</td>
-<td style="text-align: left;">5%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... divorced</td>
-<td style="text-align: left;">1549</td>
-<td style="text-align: left;">22%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... widowed</td>
-<td style="text-align: left;">161</td>
-<td style="text-align: left;">2%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">sex</td>
-<td style="text-align: left;">7006</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... male</td>
-<td style="text-align: left;">3402</td>
-<td style="text-align: left;">49%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... female</td>
-<td style="text-align: left;">3604</td>
-<td style="text-align: left;">51%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">education</td>
-<td style="text-align: left;">6996</td>
-<td style="text-align: left;">13</td>
-<td style="text-align: left;">2.6</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: left;">15</td>
-<td style="text-align: left;">20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">afqt</td>
-<td style="text-align: left;">6744</td>
-<td style="text-align: left;">41</td>
-<td style="text-align: left;">29</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: left;">15</td>
-<td style="text-align: left;">65</td>
-<td style="text-align: left;">100</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bmi</td>
-<td style="text-align: left;">6911</td>
-<td style="text-align: left;">29</td>
-<td style="text-align: left;">6.2</td>
-<td style="text-align: left;">13</td>
-<td style="text-align: left;">25</td>
-<td style="text-align: left;">32</td>
-<td style="text-align: left;">75</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">married</td>
-<td style="text-align: left;">7006</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... married</td>
-<td style="text-align: left;">3806</td>
-<td style="text-align: left;">54%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... not married</td>
-<td style="text-align: left;">3200</td>
-<td style="text-align: left;">46%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">edu_fac</td>
-<td style="text-align: left;">6996</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... not_hs</td>
-<td style="text-align: left;">1058</td>
-<td style="text-align: left;">15%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... not_cc</td>
-<td style="text-align: left;">3195</td>
-<td style="text-align: left;">46%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... not_col</td>
-<td style="text-align: left;">1110</td>
-<td style="text-align: left;">16%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... col_plus</td>
-<td style="text-align: left;">1633</td>
-<td style="text-align: left;">23%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-<p>VIDERE</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">height</td>
-<td style="text-align: left;">1740</td>
-<td style="text-align: left;">66</td>
-<td style="text-align: left;">4.1</td>
-<td style="text-align: left;">55</td>
-<td style="text-align: left;">63</td>
-<td style="text-align: left;">69</td>
-<td style="text-align: left;">84</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">edu_fac</td>
-<td style="text-align: left;">1732</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... not_hs</td>
-<td style="text-align: left;">497</td>
-<td style="text-align: left;">29%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... not_cc</td>
-<td style="text-align: left;">835</td>
-<td style="text-align: left;">48%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... not_col</td>
-<td style="text-align: left;">211</td>
-<td style="text-align: left;">12%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... col_plus</td>
-<td style="text-align: left;">189</td>
-<td style="text-align: left;">11%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">height</td>
-<td style="text-align: left;">5123</td>
-<td style="text-align: left;">67</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">52</td>
-<td style="text-align: left;">64</td>
-<td style="text-align: left;">70</td>
-<td style="text-align: left;">80</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">edu_fac</td>
-<td style="text-align: left;">5121</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... not_hs</td>
-<td style="text-align: left;">559</td>
-<td style="text-align: left;">11%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... not_cc</td>
-<td style="text-align: left;">2349</td>
-<td style="text-align: left;">46%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... not_col</td>
-<td style="text-align: left;">886</td>
-<td style="text-align: left;">17%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... col_plus</td>
-<td style="text-align: left;">1327</td>
-<td style="text-align: left;">26%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">height</td>
-<td style="text-align: left;">143</td>
-<td style="text-align: left;">71</td>
-<td style="text-align: left;">3.1</td>
-<td style="text-align: left;">61</td>
-<td style="text-align: left;">69</td>
-<td style="text-align: left;">72</td>
-<td style="text-align: left;">81</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">edu_fac</td>
-<td style="text-align: left;">143</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... not_hs</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">1%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... not_cc</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">8%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">... not_col</td>
-<td style="text-align: left;">13</td>
-<td style="text-align: left;">9%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">... col_plus</td>
-<td style="text-align: left;">117</td>
-<td style="text-align: left;">82%</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>hoyde <span class="ot">&lt;-</span> hoyde <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">income_class =</span> <span class="fu">case_when</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    income <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"zeroinc"</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    income <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> income <span class="sc">&lt;</span> <span class="dv">343830</span> <span class="sc">~</span> <span class="st">"norminc"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    income <span class="sc">&gt;=</span> <span class="dv">343830</span> <span class="sc">~</span> <span class="st">"highinc"</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>hoyde <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> edu_fac,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> income,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> income_class</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<p><img src="assignment_2_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>I fordelingen “hoydeHighInc” ser man et markant skille i fordelingen i menn og kvinner. Menn utgjør 92% av fordelingen “hoydeHighInc”, mens kvinner utgjør 8% av fordelingen.</p>
 <p>I fordelingen “hoydeZeroInc” ser man at fordelingen mellom kvinner og menn er 43% menn og 57% Kvinner som utgjør fordelingen.</p>
 <p>Plottet under er ment som en ildustrasjon av hvordan “hoydeHightInc”(rød), “hoydeZeroInc”(blå) skiller seg fra “hoydeNormInc” med utgangspunkt i høyde &amp; utdanning. Dette plottet er ikke 100% representativt for fordelingene ettersom man ikke får plottet alle observarsjonene, men fungerer godt som en indikator for å vise skille i utdanning &amp; høyde. Man ser at dersom man er i fordelingen “hoydeZeroInc” skorer majoriteten av observasjonene lavest på utdanning &amp; høyde, mens man i “hoydeNormInc” skorer en større del av observasjonene høyere på utdanning &amp; høyde enn “hoydeZeroInc”. Når det kommer til “hoydeHighInc” skorer denne klarest høyst på utdanning &amp; høyde. Vi vil seinere i oppgaven se nærmere på dette i faktiske tall.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>hoyde <span class="sc">|&gt;</span> <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> hoyde, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> education, <span class="at">y =</span> height, <span class="at">colour =</span> <span class="fu">factor</span>(income_class), <span class="at">shape =</span> sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 10 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+<p><img src="assignment_2_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>hoydeNormInc <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st</span>(<span class="fu">c</span>(<span class="st">"height"</span>, <span class="st">"education"</span>, <span class="st">"sex"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Summary Statistics</caption>
@@ -881,10 +291,8 @@ div.csl-indent {
 
 </div>
 </div>
-<p>I fordelingen “hoydeNormInc” ser man at man totalt har 5123 observasjoner med 2 NA verdier i forhold til utdanning. Denne fordelingen har klart mest observasjoner som er naturlig for et slikt datasett. Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 67inc eller 170.18cm, mens gjennomsnittlig utdanningsnivå er 13år.</p>
+<p>I fordelingen “hoydeNormInc” ser man at man totalt har 5123 observasjoner med 2 NA verdier i forhold til utdanning. Denne fordelingen har klart mest observasjoner som er naturlig for et slikt datasett. Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 67 tommer eller 170.18cm, mens gjennomsnittlig utdanningsnivå er 13år.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>hoydeHighInc <span class="sc">|&gt;</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st</span>(<span class="fu">c</span>(<span class="st">"height"</span>, <span class="st">"education"</span>, <span class="st">"sex"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Summary Statistics</caption>
@@ -957,10 +365,8 @@ div.csl-indent {
 
 </div>
 </div>
-<p>I fordelingen “hoydeNormInc” ser man at man totalt har 143 observasjoner. Denne fordelingen har klart minst observasjoner av naturlige årsaker. Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 71inc eller 180.34cm med et standaravvik på 3.1 inc eller 7.874cm, mens gjennomsnittlig utdanningsnivå er 17år med et standaravvik på 2.4år.</p>
+<p>I fordelingen “hoydeNormInc” ser man at man totalt har 143 observasjoner. Denne fordelingen har klart minst observasjoner av naturlige årsaker. Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 71 tommer eller 180.34cm med et standaravvik på 3.1 tommer eller 7.874cm, mens gjennomsnittlig utdanningsnivå er 17år med et standaravvik på 2.4år.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>hoydeZeroInc <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st</span>(<span class="fu">c</span>(<span class="st">"height"</span>, <span class="st">"education"</span>, <span class="st">"sex"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Summary Statistics</caption>
@@ -1033,7 +439,7 @@ div.csl-indent {
 
 </div>
 </div>
-<p>I fordelingen “hoydeZeroInc” ser man at man totalt har 1740 observasjoner, med 8 NA verdier tilknyttet utdanning. Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 66inc eller 167.64cm med et standaravvik på 4.1 inc eller 10.414cm, mens gjennomsnittlig utdanningsnivå er 12år med et standaravvik på 2.4 år.</p>
+<p>I fordelingen “hoydeZeroInc” ser man at man totalt har 1740 observasjoner, med 8 NA verdier tilknyttet utdanning. Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 66 tommer eller 167.64cm med et standaravvik på 4.1 tommer eller 10.414cm, mens gjennomsnittlig utdanningsnivå er 12år med et standaravvik på 2.4 år.</p>
 <p>Ser man da tilbake på plottet som ble presantert lengre oppe ser man at med faktiske tall vil plottet være representativt. “hoydeHightInc” skiller seg i den forstand fra “hoydeNormInc” i forhold til utdanning &amp; høyde at man er høyere utdannet og høyere. Man er i “hoydeHighInc” 10,16 cm høyere og 4 år høyere utdannet enn “hoydeNormInc” gjennomsnittslig. Når det kommer til “hoydeZeroInc” skiller dette seg fra “hoydeNormInc” i den forstand at man gjennomsnittslig er 2,54cm lavere og 1 år lavere utdannet.</p>
 <p>Vi kan med utgangspunkt i disse observarsjonene sett vekk i fra andre faktorer se at utdanning &amp; høyde har en innvirkning på hvilke inntekt mann har. Høyere høyde &amp; utdanning vil gi en effekt i økt inntekt. .</p>
 

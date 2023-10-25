@@ -89,50 +89,6 @@ filter(income == 343830)
 
 ```{r}
 #| echo: false
-hoyde |>
-ggplot(
-mapping = aes(
-x = height,
-y = income
-)
-) +
-geom_jitter(
-size = 1,
-alpha = 0.40
-) +
-geom_smooth(
-formula = y ~ x,
-method = "lm",
-colour = "black",
-lwd = 0.75,
-se = FALSE
-)
-```
-
-```{r}
-#| echo: false
-hoydeNormInc |>
-ggplot(
-mapping = aes(
-x = height,
-y = income
-)
-) +
-geom_jitter(
-size = 1,
-alpha = 0.40
-) +
-geom_smooth(
-formula = y ~ x,
-method = "lm",
-colour = "black",
-lwd = 0.75,
-se = FALSE
-)
-```
-
-```{r}
-#| echo: false
 meanHeightMale <- hoyde |>
 filter(sex == 'male') %>%
 select(height) |>
@@ -162,27 +118,6 @@ sd()
 
 ```{r}
 #| echo: false
-ggplot(hoydeNormInc, aes(
-  x = edu_fac,
-  y = income
-)) +
-  geom_jitter(alpha = 0.5) +
-  geom_smooth(method = "lm")
-```
-
-```{r}
-#| echo: false
-ggplot(hoydeNormInc, aes(
-  x = height,
-  y = income
-)
-) +
-geom_point() +
-  facet_wrap(~edu_fac)
-
-```
-
-```{r}
 na <- is.na(hoyde)
 ```
 
@@ -256,7 +191,7 @@ Det som skiller seg mest klart ut i de fire fasetene er at "not_hs" har en relat
 Vi ser også at i utdanningsgruppen "col_plus" er stigningstallet til den linjere regresjonslinjen brattere, og kan tolkes til at dersom man i denne katogorivariabelen vil man ha en større økning i inntekt i forhold til økning i høyde.
 
 Ser man på de to gjennverende katogorivariablene "not_cc" og "not_col" skiller ikke disse linjære regrisjonslinjene seg betraktelige fra hverandre i forhold til at man øker i inntekt gitt at man øker i høyde.
-Man ser av disse variablene at det er en økning i inntekt dersom man er høyere, men hvilke av de to utdanningsgruppene man er i har en større påvirkning på hvilke inntekt man har.
+Man ser av disse variablene at det er en økning i inntekt dersom man er høyere utdannet.
 
 ```{r}
 #| echo: false
@@ -275,11 +210,15 @@ alpha = 0.40
 )
 ```
 
+Fordelingen av menn & kvinner "hoydeZeroInc"
+
 ```{r}
 #| echo: false
 hoydeZeroInc |>
 st("sex")
 ```
+
+Fordelingen av menn & kvinner "hoydehighInc"
 
 ```{r}
 #| echo: false
@@ -289,31 +228,6 @@ st("sex")
 
 ```{r}
 #| echo: false
-hoyde |> 
-  st()
-```
-
-VIDERE
-
-```{r}
-#| echo: false
-hoydeZeroInc |> 
-  st(c("height", "edu_fac"))
-```
-
-```{r}
-#| echo: false
-hoydeNormInc |> 
-  st(c("height", "edu_fac"))
-```
-
-```{r}
-#| echo: false
-hoydeHighInc |> 
-  st(c("height", "edu_fac"))
-```
-
-```{r}
 hoyde <- hoyde |> 
   mutate(
     income_class = case_when(
@@ -323,7 +237,10 @@ hoyde <- hoyde |>
     ))
 ```
 
+Plottet under er en illustrasjon av hvilke innktekt "highinc", "norminc" og "zeroinc" har, hvor vi skal videre se på hvilke andel menn & kvinner som utgjør de ulike innteksgruppene.
+
 ```{r}
+#| echo: false
 hoyde |> 
   ggplot(mapping = aes(
     x = edu_fac,
@@ -345,35 +262,40 @@ Når det kommer til "hoydeHighInc" skorer denne klarest høyst på utdanning & h
 Vi vil seinere i oppgaven se nærmere på dette i faktiske tall.
 
 ```{r}
+#| echo: false
 hoyde |> ggplot() +
-  geom_point(data = hoyde, mapping = aes(x = education, y = height, colour = factor(income_class), shape = sex))
+  geom_point(data = hoyde, mapping = aes(x = education, y = height, colour = factor(income_class), shape = sex)) + 
+  facet_wrap(~income_class)
 ```
 
 ```{r}
+#| echo: false
 hoydeNormInc |> 
   st(c("height", "education", "sex"))
 ```
 
 I fordelingen "hoydeNormInc" ser man at man totalt har 5123 observasjoner med 2 NA verdier i forhold til utdanning.
 Denne fordelingen har klart mest observasjoner som er naturlig for et slikt datasett.
-Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 67inc eller 170.18cm, mens gjennomsnittlig utdanningsnivå er 13år.
+Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 67 tommer eller 170.18cm, mens gjennomsnittlig utdanningsnivå er 13år.
 
 ```{r}
+#| echo: false
 hoydeHighInc |> 
   st(c("height", "education", "sex"))
 ```
 
 I fordelingen "hoydeNormInc" ser man at man totalt har 143 observasjoner.
 Denne fordelingen har klart minst observasjoner av naturlige årsaker.
-Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 71inc eller 180.34cm med et standaravvik på 3.1 inc eller 7.874cm, mens gjennomsnittlig utdanningsnivå er 17år med et standaravvik på 2.4år.
+Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 71 tommer eller 180.34cm med et standaravvik på 3.1 tommer eller 7.874cm, mens gjennomsnittlig utdanningsnivå er 17år med et standaravvik på 2.4år.
 
 ```{r}
+#| echo: false
 hoydeZeroInc |> 
   st(c("height", "education", "sex"))
 ```
 
 I fordelingen "hoydeZeroInc" ser man at man totalt har 1740 observasjoner, med 8 NA verdier tilknyttet utdanning.
-Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 66inc eller 167.64cm med et standaravvik på 4.1 inc eller 10.414cm, mens gjennomsnittlig utdanningsnivå er 12år med et standaravvik på 2.4 år.
+Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 66 tommer eller 167.64cm med et standaravvik på 4.1 tommer eller 10.414cm, mens gjennomsnittlig utdanningsnivå er 12år med et standaravvik på 2.4 år.
 
 Ser man da tilbake på plottet som ble presantert lengre oppe ser man at med faktiske tall vil plottet være representativt.
 "hoydeHightInc" skiller seg i den forstand fra "hoydeNormInc" i forhold til utdanning & høyde at man er høyere utdannet og høyere.
