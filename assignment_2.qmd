@@ -4,12 +4,13 @@ format: html
 editor: visual
 bibliography: [ds_grp1.bib]
 Author: Espen Knutsen, Marius Martinussen og René Rødde Bracci
+language: nb.yaml
 ---
 
 ```{r}
 #| label: setup
 #| echo: false
-#| output: false
+#| message: false
 library(tidyverse)
 library(vtable)
 
@@ -24,18 +25,15 @@ De ulike inntektsgruppene er nullinntekt (hoydeZeroInc), normalinntekt (hoydeNor
 
 ### Utdanning og inntekt
 
-Når det kommer til sammenheng mellom utdanning og inntekt, viser det seg at menn som ikke ble uteksaminert fra videregående en halv tomme (1,27 cm) kortere enn gjennomsnittet, og er mer enn en tomme (2,54 cm) kortere enn en gjennomsnittlig høyskoleutdannet mann [@Deaton&Arora2009].
+Når det kommer til sammenheng mellom utdanning og inntekt, viser det seg at menn som ikke ble uteksaminert fra videregående er en halv tomme (1,27 cm) kortere enn gjennomsnittet, og mer enn en tomme (2,54 cm) kortere enn en gjennomsnittlig høyskoleutdannet mann [@Deaton&Arora2009].
 Når det kommer til kvinner, er forskjellen litt mindre [@Deaton&Arora2009].
-
-Så hvorfor har høyere mennesker bedre utdanning og høyere inntekt?
-
-Ifølge @Case&Paxson2008 så har høyere mennesker større mulighet for å ha nådd sitt fulle kognitive potensiale enn lavere personer.
-Alt henger sammen med barndommen og hvor godt ernært et barn er gjennom hele barndommen.
+@case2008 hevder også at høyere mennesker har større mulighet for å ha nådd sitt fulle kognitive potensiale enn lavere personer.
+Dette henger sammen med barndommen og hvor godt ernært et barn er gjennom hele barndommen.
 I tillegg henger det sammen med om barnet har vært skånet for barnesykdommer som har hatt potensialet til å bremse utviklingen i forhold til høyde.
-Har ikke barnet vært sykt, så vil de nå voksenhøyden som ligger i genet deres [@Case&Paxson2008].
-I tillegg nevner @Case&Paxson2008 at det er en sammenheng mellom utvikling kognitivt og fysisk.
+Har ikke barnet vært sykt, så vil de nå voksenhøyden som ligger i genene deres [@case2008].
+I tillegg nevner @case2008 at det er en sammenheng mellom kognitivt og fysisk utvikling .
  Det vil si at et barn som ikke har nådd sin fulle mulige høyde, har heller ikke utviklet sitt fulle kognitive potensiale.
-Det er nemlig barn som mangler full kognitiv utvikling som står for lavere utdanningsnivå og lavere inntekt i voksen alder [@Case&Paxson2008].
+Det er nemlig barn som mangler full kognitiv utvikling som står for lavere utdanningsnivå og lavere inntekt i voksen alder [@case2008].
 
 ### Høyde og inntekt
 
@@ -43,15 +41,14 @@ Når det kommer til forholdet mellom høyde og inntekt, har @Deaton&Arora2009 he
 Ifølge @Deaton&Arora2009, var menn som var over gjennomsnittlig høyde (177,8 cm) et trinn på stigen over menn som er under gjennomsnittlig høyde.
 For kvinner er forskjellen mindre.
 Kvinner under gjennomsnittlig høyde (162,6 cm) ligger litt mindre enn en tidel av et trinn under kvinner med over gjennomsnittlig høyde.
-Forskjellene kan virke små, men sammenlignet med faktorer som påvirker stigen, er inntekt en utgjørende faktor [@Deaton&Arora2009].
-Øker vi høyden med en ekstra tomme på den såkalt stigen med effekten av en endring i inntekt, så vil hver ekstra tomme høyde ha samme effekt som en økning på 3,8% i familie inntekt for kvinner og 4,4% økning for menn.
+Forskjellene kan virke små, men sammenlignet med andre faktorer som påvirker stigen, er inntekt en viktig faktor [@Deaton&Arora2009].
+Øker vi høyden med en ekstra tomme , på den såkalt stigen mht.
+effekten av en endring i inntekt, så vil hver ekstra tomme høyde medføre en økning på 3,8% i familie-inntekt for kvinner og 4,4% økning for menn.
 
 ### Utdanning og høyde
 
-Ifølge @Case&Paxson2008, er det sammenheng mellom utdanning og høyde som fører til økt inntekt.
-Dette skyldes at høyere mennesker har større sannsynlighet for å ha nådd sitt fulle kognitive potensial enn lavere personer [@Case&Paxson2008].
-
-The `echo: false` option disables the printing of code (only output is displayed).
+Ifølge @case2008, er det sammenhengen mellom utdanning og høyde som fører til økt inntekt.
+Dette skyldes at høyere mennesker har større sannsynlighet for å ha nådd sitt fulle kognitive potensial enn lavere personer [@case2008].
 
 ## EDA av datasettet heights med utgangspunkt i sammenheng mellom utdanning og inntekt
 
@@ -121,7 +118,7 @@ sd()
 na <- is.na(hoyde)
 ```
 
-Datasettet er kalt heights og er en del av pakken modelr, Wickham (2020), som er en utvidelspakke for statistikksystemet R, R Core Team (2021).
+Datasettet er kalt heights og er en del av pakken modelr [@wickham2020], som er en utvidelspakke for statistikksystemet R, [@rcore2023].
 Vi skal nå gjennomføre en EDA av datasettet med utgangspunkt i vår problemstilling som er sammenhengen mellom utdanning og inntekt ved bruk av kategorivariabel edu_fac:
 
 -   not_hs: 0-11 års utdanning
@@ -131,6 +128,8 @@ Vi skal nå gjennomføre en EDA av datasettet med utgangspunkt i vår problemsti
 
 ```{r}
 #| echo: false
+#| label: fig-scatter-height-inc-ed
+#| fig-cap: "Plot av utdanning mot inntekt."
 hoydeNormInc |>
   filter(!is.na(edu_fac)) |> 
 ggplot(
@@ -153,6 +152,34 @@ se = FALSE
 )
 ```
 
+```{r}
+#| echo: false
+#| label: fig-scatter-ed-inc
+#| fig-cap: "ags Forslag: Plot av høyde mot inntekt. Utdanningsnivå er angitt vha. farge. Nå får vi illustrert tre variabler. Har satt en width lik 0.25 på geom_jitter s.a. det forhåpentlig blir klarer at hver søyle representerer en høyde. Benytter også en facet-wrap på kjønn, s.a. vi får vist en fjerde variabel."
+hoydeNormInc |>
+  filter(!is.na(edu_fac)) |> 
+ggplot(
+mapping = aes(
+x = height,
+y = income,
+colour = edu_fac
+)
+) +
+geom_jitter(
+  width = 0.25,
+  size = 0.5,
+  alpha = 0.40
+) +
+geom_smooth(
+formula = y ~ x,
+method = "lm",
+colour = "black",
+lwd = 0.75,
+se = FALSE
+) +
+  facet_wrap(~ sex)
+```
+
 Vi ser at det er en sammenheng mellom inntekt og utdannelse.
 I figuren over ser vi at den linære regresjonslinjen viser en økning i inntekt for gitt lenger utdanning.
 
@@ -160,6 +187,8 @@ Videre skal vi ved hjelp av fasetter se på om det finnes en sammenheng mellom h
 
 ```{r}
 #| echo: false
+#| label: fig-scatter-facet-height-inc-ed
+#| fig-cap: "Her brukes farge bare til pynt. Grad av utdannelse fremkommer klart av sub-plot. Hva med å bruke farge til å angi kjønn?"
 hoydeNormInc |>
   filter(!is.na(edu_fac)) |> 
 ggplot(
@@ -183,14 +212,50 @@ se = FALSE
   facet_wrap(~edu_fac)
 ```
 
+```{r}
+#| echo: false
+#| label: fig-scatter-facet-height-inc-sex
+#| fig-cap: "Sammenhengen mellom høyde og inntekt for de fire utdanningsgruppene. Farge angir observasjoner for hhv. menn og kvinner og tilhørende regresjonslinjer."
+hoydeNormInc |>
+  filter(!is.na(edu_fac)) |> 
+ggplot(
+mapping = aes(
+x = height,
+y = income,
+colour = sex
+)
+) +
+geom_jitter(
+size = 0.7,
+alpha = 0.80
+) +
+geom_smooth(
+data = filter(hoydeNormInc, sex == 'male' & !is.na(edu_fac)),
+formula = y ~ x,
+method = "lm",
+lwd = 0.75,
+se = FALSE
+) +
+geom_smooth(
+data = filter(hoydeNormInc, sex == 'female' & !is.na(edu_fac)),
+formula = y ~ x,
+method = "lm",
+lwd = 0.75,
+se = FALSE
+) + 
+facet_wrap(~edu_fac)
+```
+
+Hvis dere sammenligner informasjonsmengden i @fig-scatter-facet-height-inc-sex og @fig-scatter-facet-height-inc-ed så ser dere forhåpentligvis at @fig-scatter-facet-height-inc-sex gir mer innsikt med bruk av de samme elementene.
+
 Av fasettene ser man at de ulike utdanningsgruppene reagerer ulikt på hvordan høyde påvirker hvilke inntekt man har.
 Vi kan se av den linjere regresjonslinjen i de ulike farsettene at en lavere utdannelsegruppe har et lavere "startpunkt" for inntekt, hvor dette gradvis øker om man er høyere.
 
 Det som skiller seg mest klart ut i de fire fasetene er at "not_hs" har en relativt flat linjer regresjonslinje, som tolkes til at dersom man ikke har fullført high school vil ikke man øke markant i inntekt dersom man er høyere.
 
-Vi ser også at i utdanningsgruppen "col_plus" er stigningstallet til den linjere regresjonslinjen brattere, og kan tolkes til at dersom man i denne katogorivariabelen vil man ha en større økning i inntekt i forhold til økning i høyde.
+Vi ser også at i utdanningsgruppen "col_plus" er stigningstallet til den lineære regresjonslinjen brattere, og kan tolkes til at dersom man i denne kategorivariabelen vil man ha en større økning i inntekt i forhold til økning i høyde.
 
-Ser man på de to gjennverende katogorivariablene "not_cc" og "not_col" skiller ikke disse linjære regrisjonslinjene seg betraktelige fra hverandre i forhold til at man øker i inntekt gitt at man øker i høyde.
+Ser man på de to gjenværende kategorivariablene "not_cc" og "not_col" skiller ikke disse lineære regresjonslinjene seg betraktelige fra hverandre i forhold til at man øker i inntekt gitt at man øker i høyde.
 Man ser av disse variablene at det er en økning i inntekt dersom man er høyere utdannet.
 
 ```{r}
@@ -208,6 +273,21 @@ geom_jitter(
 size = 1,
 alpha = 0.40
 )
+```
+
+Forstår det slik at det er @case2008 påståtte sammen heng mellom høyde og utdanning dere vil undersøke.
+Merk at sammenhengen går en veg, neppe noen som tror at dess mer utdanning du tar dess høyere blir du.
+
+```{r}
+#| message: false
+#| label: fig-h-ed-sex
+#| fig-cap: "Sammenhengen mellom høyde og utdanningsnivå. Det ser ut til å være en positiv sammenheng mellom høyde og utdanning for begge kjønn slik @case2008 hevder. Årsaken er sammenhengen mellom ernæring og høyde og mellom ernæring og utvikling av kognitive evner. Fargefyll angir hvor mange observasjoner vi har for hver kombinasjon av høyde og år utdanning."
+hoydeNormInc |> 
+  filter(!is.na(education)) |> 
+  ggplot(mapping = aes(x = height, y = education)) + 
+  geom_point(alpha = 0.1) +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~sex)
 ```
 
 Fordelingen av menn & kvinner "hoydeZeroInc"
@@ -237,7 +317,11 @@ hoyde <- hoyde |>
     ))
 ```
 
-Plottet under er en illustrasjon av hvilke innktekt "highinc", "norminc" og "zeroinc" har, hvor vi skal videre se på hvilke andel menn & kvinner som utgjør de ulike innteksgruppene.
+Plottet under er en illustrasjon av hvilke inntekt "highinc", "norminc" og "zeroinc" har, hvor vi skal videre se på hvilke andel menn & kvinner som utgjør de ulike innteksgruppene.
+
+::: callout-note
+## Får dere egentlig frem kjønnsforskjellene i det følgende plotet?
+:::
 
 ```{r}
 #| echo: false
@@ -262,10 +346,20 @@ Når det kommer til "hoydeHighInc" skorer denne klarest høyst på utdanning & h
 Vi vil seinere i oppgaven se nærmere på dette i faktiske tall.
 
 ```{r}
+# Her bør dere bytte om på height og education
+# Ellers gir dere inntrykk av at mer utdanning fører til at man
+# vokser i høyden.
+# Fargekoding av income_class blir igjen smør på flesk. 
+# Vil foreslå facet på income_class og sex. Viser kjønnsforskjeller
+# klarere enn å bruke shape på punktene
 #| echo: false
-hoyde |> ggplot() +
-  geom_point(data = hoyde, mapping = aes(x = education, y = height, colour = factor(income_class), shape = sex)) + 
-  facet_wrap(~income_class)
+#| message: false
+#| warning: false
+hoyde |> 
+  filter(!is.na(education)) |> 
+  ggplot() +
+  geom_point(mapping = aes(x = height, y = education), alpha = 0.1) + 
+  facet_grid(sex~income_class)
 ```
 
 ```{r}
@@ -304,4 +398,3 @@ Når det kommer til "hoydeZeroInc" skiller dette seg fra "hoydeNormInc" i den fo
 
 Vi kan med utgangspunkt i disse observarsjonene sett vekk i fra andre faktorer se at utdanning & høyde har en innvirkning på hvilke inntekt mann har.
 Høyere høyde & utdanning vil gi en effekt i økt inntekt.
-.

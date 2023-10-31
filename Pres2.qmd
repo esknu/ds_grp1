@@ -1,0 +1,141 @@
+---
+title: "Assigment 2"
+format: revealjs
+editor: visual
+bibliography: [ds_grp1.bib]
+Author: Espen Knutsen, Marius Martinussen og René Rødde Bracci
+---
+
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+library(tidyverse)
+library(vtable)
+
+```
+
+```{r}
+#| echo: false
+hoyde <- modelr::heights
+hoyde <- hoyde %>%
+mutate(
+bmi = weight * 0.4536/(height * 2.54/100)^2,
+married = fct_collapse(
+.f = marital,
+married = "married",
+other_level = "not married"
+),
+edu_fac = cut(
+x = education,
+breaks = c(0, 12, 14, 16, 21),
+labels = c("not_hs", "not_cc", "not_col", "col_plus"),
+right = FALSE
+)
+)
+```
+
+```{r}
+#| echo: false
+# Inntekt lik 0
+hoydeZeroInc <- hoyde |>
+filter(income == 0)
+# «Normal» inntekt
+hoydeNormInc <- hoyde |>
+filter(income > 0 & income < 343830)
+hoydeHighInc <- hoyde |>
+filter(income == 343830)
+```
+
+```{r}
+#| echo: false
+meanHeightMale <- hoyde |>
+filter(sex == 'male') %>%
+select(height) |>
+# konverterer en tibble med 3402 rekker og 1 kolonne
+# til en vektor med 3402 elementer siden mean() forlanger en
+# vektor som input
+pull() |>
+# finner gjennomsnittet av verdiene i vektoren
+mean()
+meanHeightFemale <- hoyde |>
+filter(sex == 'female') %>%
+select(height) |>
+pull() |>
+mean()
+# standard deviation
+sdHeightMale <- hoyde |>
+filter(sex == 'male') |>
+select(height) |>
+pull() |>
+sd()
+sdHeightFemale <- hoyde |>
+filter(sex == 'female') |>
+select(height) |>
+pull() |>
+sd()
+```
+
+## Innledning
+
+-   Sammenhengen mellom;
+    -   Utdanning og inntekt
+
+    -   Høyde og inntekt
+
+    -   Fordeling av menn og kvinner
+
+    -   hoydeZeroinc, hoydeHighinc og hoydeNorminc
+
+## Littraturgjennomgang
+
+-   Utdanning og inntekt
+    -   Sammenhengen
+    -   Kognitive potensiale
+    -   fysisk utvikling
+-   Høyde og inntekt
+    -   Data fra Gallup - Healthways Well - Being index
+    -   Gjennomsnitts høyde
+    -   Økning i høyde med en tomme
+    -   Effekt i inntekt
+-   Utdanning og Høyde
+    -   Fulle kognitive potensiale
+
+## EDA av datasettet
+
+-   Heights
+
+-   katogorivariabel edu_fac
+
+    ```{r}
+    #| echo: false
+    #| label: fig-scatter-ed-inc
+    #| fig-cap:  Plot av høyde mot inntekt. Utdanningsnivå er angitt vha. farge. 
+    hoydeNormInc |>
+      filter(!is.na(edu_fac)) |> 
+    ggplot(
+    mapping = aes(
+    x = height,
+    y = income,
+    colour = edu_fac
+    )
+    ) +
+    geom_jitter(
+      width = 0.25,
+      size = 0.5,
+      alpha = 0.40
+    ) +
+    geom_smooth(
+    formula = y ~ x,
+    method = "lm",
+    colour = "black",
+    lwd = 0.75,
+    se = FALSE
+    ) +
+      facet_wrap(~ sex)
+
+    ```
+
+## 
+
+## 

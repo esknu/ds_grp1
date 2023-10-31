@@ -1,0 +1,21 @@
+---
+title: "ag comments"
+format: html
+editor: visual
+---
+
+## Generelle kommentarer
+
+-   Første innlevering og dokumentet er reproduserbart. Flott!
+-   Bruk av Git, Bra.
+    -   commit kommentarene har forbedringspotensiale
+    -   dato blir automatisk registrert så "Update 19.10.23" har liten informasjonsverdi.
+-   Jeg har fikset litt på teksten i litteraturgjennomgangen.
+-   Merk bruken av inline citation.
+-   Har brukt `citation()` og `citation("modelr")` for å legge R referansene inn i .bib filen.
+-   Tatt bort den ene varianten av Case og Paxson i .bib filen. Holder å referere til tidsskriftartikkelen.
+-   Har lagt label og fig-cap til figurene så de er lettere å referer til
+-   Lagt inn begrenset støtte for norsk vha. `language: nb.yaml` i YAML header
+-   I figur 1 benytter dere x-aksen til å angi antall år utdanning vha. plassering og farge for å angi utdanningskategori. Jeg synes dette har begrenset informasjonsverdi.
+-   Tenk nøye gjennom *hva* dere bruker en egenskap til å illustrere. I mange av plotene benyttes farge bare som dekor.
+    -   Jeg har forslått noen endringer som øker informasjonsverdien i plotene.
