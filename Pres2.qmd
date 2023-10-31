@@ -92,12 +92,9 @@ sd()
 -   Utdanning og inntekt
     -   Sammenhengen
     -   Kognitive potensiale
-    -   fysisk utvikling
 -   Høyde og inntekt
     -   Data fra Gallup - Healthways Well - Being index
-    -   Gjennomsnitts høyde
     -   Økning i høyde med en tomme
-    -   Effekt i inntekt
 -   Utdanning og Høyde
     -   Fulle kognitive potensiale
 
@@ -163,7 +160,7 @@ se = FALSE
   facet_wrap(~ sex)
 ```
 
--   Økning i inntekt for økt utdanning
+-   Økning i utdanning øker inntekt
 
 ## Inntekt og utdannelse forts.
 
@@ -199,11 +196,13 @@ se = FALSE
 facet_wrap(~edu_fac)
 ```
 
+## Inntekt og utdannelse forts.
+
 -   Lavere utdanning har generelt et lavere startspunkt
 -   Liten endring i inntekt for personer uten videregående utdanning
 -   Størst stigning i "not_cc"
 
-## Fordelingen av menn og kvinner mtp høyde og utdanning
+## Kjønnsfordeling av høyde og utdanning
 
 ```{r}
 #| echo: false
@@ -215,7 +214,7 @@ hoydeNormInc |>
   facet_wrap(~sex)
 ```
 
-## Fordeling av kjønn i de forskjellige inntektsgruppene
+## Kjønnsfordeling i inntektsgrupper
 
 ```{r}
 #| echo: false
@@ -237,7 +236,7 @@ hoyde |>
   facet_grid(sex~income_class)
 ```
 
-## Fordeling av kjønn i de forskjellige inntektsgruppene
+## Kjønnsfordeling i inntektsgrupper
 
 Normal inntekt
 
@@ -261,4 +260,3 @@ hoydeHighInc |>
 hoydeZeroInc |> 
   st(c("height", "education", "sex"))
 ```
-
