@@ -109,7 +109,6 @@ sd()
 
     ```{r}
     #| echo: false
-    #| label: fig-scatter-ed-inc
     #| fig-cap:  Plot av høyde mot inntekt. Utdanningsnivå er angitt vha. farge. 
     hoydeNormInc |>
       filter(!is.na(edu_fac)) |> 
@@ -136,6 +135,130 @@ sd()
 
     ```
 
-## 
+## Inntekt og utdannelse
 
-## 
+```{r}
+#| echo: false
+hoydeNormInc |>
+  filter(!is.na(edu_fac)) |> 
+ggplot(
+mapping = aes(
+x = height,
+y = income,
+colour = edu_fac
+)
+) +
+geom_jitter(
+  width = 0.25,
+  size = 0.5,
+  alpha = 0.40
+) +
+geom_smooth(
+formula = y ~ x,
+method = "lm",
+colour = "black",
+lwd = 0.75,
+se = FALSE
+) +
+  facet_wrap(~ sex)
+```
+
+-   Økning i inntekt for økt utdanning
+
+## Inntekt og utdannelse forts.
+
+```{r}
+#| echo: false
+hoydeNormInc |>
+  filter(!is.na(edu_fac)) |> 
+ggplot(
+mapping = aes(
+x = height,
+y = income,
+colour = sex
+)
+) +
+geom_jitter(
+size = 0.7,
+alpha = 0.80
+) +
+geom_smooth(
+data = filter(hoydeNormInc, sex == 'male' & !is.na(edu_fac)),
+formula = y ~ x,
+method = "lm",
+lwd = 0.75,
+se = FALSE
+) +
+geom_smooth(
+data = filter(hoydeNormInc, sex == 'female' & !is.na(edu_fac)),
+formula = y ~ x,
+method = "lm",
+lwd = 0.75,
+se = FALSE
+) + 
+facet_wrap(~edu_fac)
+```
+
+-   Lavere utdanning har generelt et lavere startspunkt
+-   Liten endring i inntekt for personer uten videregående utdanning
+-   Størst stigning i "not_cc"
+
+## Fordelingen av menn og kvinner mtp høyde og utdanning
+
+```{r}
+#| echo: false
+hoydeNormInc |> 
+  filter(!is.na(education)) |> 
+  ggplot(mapping = aes(x = height, y = education)) + 
+  geom_point(alpha = 0.1) +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~sex)
+```
+
+## Fordeling av kjønn i de forskjellige inntektsgruppene
+
+```{r}
+#| echo: false
+hoyde <- hoyde |> 
+  mutate(
+    income_class = case_when(
+    income == 0 ~ "zeroinc",
+    income > 0 & income < 343830 ~ "norminc",
+    income >= 343830 ~ "highinc"
+    ))
+```
+
+```{r}
+#| echo: false
+hoyde |> 
+  filter(!is.na(education)) |> 
+  ggplot() +
+  geom_point(mapping = aes(x = education, y = height), alpha = 0.1) + 
+  facet_grid(sex~income_class)
+```
+
+## Fordeling av kjønn i de forskjellige inntektsgruppene
+
+Normal inntekt
+
+```{r}
+hoydeNormInc |> 
+  st(c("height", "education", "sex"))
+
+```
+
+## Høy inntekt
+
+```{r}
+hoydeHighInc |> 
+  st(c("height", "education", "sex"))
+
+```
+
+## Ingen inntekt
+
+```{r}
+hoydeZeroInc |> 
+  st(c("height", "education", "sex"))
+```
+
