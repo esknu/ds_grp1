@@ -132,7 +132,7 @@ sd()
 
     ```
 
-## Inntekt og utdannelse forts.
+## Inntekt og utdannelse 
 
 ```{r}
 #| echo: false
