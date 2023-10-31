@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -89,23 +123,20 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="litteraturgjennomgang">Litteraturgjennomgang</h2>
 <section id="utdanning-og-inntekt" class="level3">
 <h3 class="anchored" data-anchor-id="utdanning-og-inntekt">Utdanning og inntekt</h3>
-<p>Når det kommer til sammenheng mellom utdanning og inntekt, viser det seg at menn som ikke ble uteksaminert fra videregående en halv tomme (1,27 cm) kortere enn gjennomsnittet, og er mer enn en tomme (2,54 cm) kortere enn en gjennomsnittlig høyskoleutdannet mann <span class="citation" data-cites="Deaton&amp;Arora2009">(<a href="#ref-Deaton&amp;Arora2009" role="doc-biblioref">Deaton and Arora 2009</a>)</span>. Når det kommer til kvinner, er forskjellen litt mindre <span class="citation" data-cites="Deaton&amp;Arora2009">(<a href="#ref-Deaton&amp;Arora2009" role="doc-biblioref">Deaton and Arora 2009</a>)</span>.</p>
-<p>Så hvorfor har høyere mennesker bedre utdanning og høyere inntekt?</p>
-<p>Ifølge <span class="citation" data-cites="Case&amp;Paxson2008">Case and Paxson (<a href="#ref-Case&amp;Paxson2008" role="doc-biblioref">2008</a>)</span> så har høyere mennesker større mulighet for å ha nådd sitt fulle kognitive potensiale enn lavere personer. Alt henger sammen med barndommen og hvor godt ernært et barn er gjennom hele barndommen. I tillegg henger det sammen med om barnet har vært skånet for barnesykdommer som har hatt potensialet til å bremse utviklingen i forhold til høyde. Har ikke barnet vært sykt, så vil de nå voksenhøyden som ligger i genet deres <span class="citation" data-cites="Case&amp;Paxson2008">(<a href="#ref-Case&amp;Paxson2008" role="doc-biblioref">Case and Paxson 2008</a>)</span>. I tillegg nevner <span class="citation" data-cites="Case&amp;Paxson2008">Case and Paxson (<a href="#ref-Case&amp;Paxson2008" role="doc-biblioref">2008</a>)</span> at det er en sammenheng mellom utvikling kognitivt og fysisk. &nbsp;Det vil si at et barn som ikke har nådd sin fulle mulige høyde, har heller ikke utviklet sitt fulle kognitive potensiale. Det er nemlig barn som mangler full kognitiv utvikling som står for lavere utdanningsnivå og lavere inntekt i voksen alder <span class="citation" data-cites="Case&amp;Paxson2008">(<a href="#ref-Case&amp;Paxson2008" role="doc-biblioref">Case and Paxson 2008</a>)</span>.</p>
+<p>Når det kommer til sammenheng mellom utdanning og inntekt, viser det seg at menn som ikke ble uteksaminert fra videregående er en halv tomme (1,27 cm) kortere enn gjennomsnittet, og mer enn en tomme (2,54 cm) kortere enn en gjennomsnittlig høyskoleutdannet mann <span class="citation" data-cites="Deaton&amp;Arora2009">(<a href="#ref-Deaton&amp;Arora2009" role="doc-biblioref">Deaton and Arora 2009</a>)</span>. Når det kommer til kvinner, er forskjellen litt mindre <span class="citation" data-cites="Deaton&amp;Arora2009">(<a href="#ref-Deaton&amp;Arora2009" role="doc-biblioref">Deaton and Arora 2009</a>)</span>. <span class="citation" data-cites="case2008">(<a href="#ref-case2008" role="doc-biblioref"><strong>case2008?</strong></a>)</span> hevder også at høyere mennesker har større mulighet for å ha nådd sitt fulle kognitive potensiale enn lavere personer. Dette henger sammen med barndommen og hvor godt ernært et barn er gjennom hele barndommen. I tillegg henger det sammen med om barnet har vært skånet for barnesykdommer som har hatt potensialet til å bremse utviklingen i forhold til høyde. Har ikke barnet vært sykt, så vil de nå voksenhøyden som ligger i genene deres <span class="citation" data-cites="case2008">(<a href="#ref-case2008" role="doc-biblioref"><strong>case2008?</strong></a>)</span>. I tillegg nevner <span class="citation" data-cites="case2008">(<a href="#ref-case2008" role="doc-biblioref"><strong>case2008?</strong></a>)</span> at det er en sammenheng mellom kognitivt og fysisk utvikling . &nbsp;Det vil si at et barn som ikke har nådd sin fulle mulige høyde, har heller ikke utviklet sitt fulle kognitive potensiale. Det er nemlig barn som mangler full kognitiv utvikling som står for lavere utdanningsnivå og lavere inntekt i voksen alder <span class="citation" data-cites="case2008">(<a href="#ref-case2008" role="doc-biblioref"><strong>case2008?</strong></a>)</span>.</p>
 </section>
 <section id="høyde-og-inntekt" class="level3">
 <h3 class="anchored" data-anchor-id="høyde-og-inntekt">Høyde og inntekt</h3>
-<p>Når det kommer til forholdet mellom høyde og inntekt, har <span class="citation" data-cites="Deaton&amp;Arora2009">Deaton and Arora (<a href="#ref-Deaton&amp;Arora2009" role="doc-biblioref">2009</a>)</span> hentet data fra Gallup-Healthways Well-Being Index for å se på forholdet mellom høyde og inntekt. Ifølge <span class="citation" data-cites="Deaton&amp;Arora2009">Deaton and Arora (<a href="#ref-Deaton&amp;Arora2009" role="doc-biblioref">2009</a>)</span>, var menn som var over gjennomsnittlig høyde (177,8 cm) et trinn på stigen over menn som er under gjennomsnittlig høyde. For kvinner er forskjellen mindre. Kvinner under gjennomsnittlig høyde (162,6 cm) ligger litt mindre enn en tidel av et trinn under kvinner med over gjennomsnittlig høyde. Forskjellene kan virke små, men sammenlignet med faktorer som påvirker stigen, er inntekt en utgjørende faktor <span class="citation" data-cites="Deaton&amp;Arora2009">(<a href="#ref-Deaton&amp;Arora2009" role="doc-biblioref">Deaton and Arora 2009</a>)</span>. Øker vi høyden med en ekstra tomme på den såkalt stigen med effekten av en endring i inntekt, så vil hver ekstra tomme høyde ha samme effekt som en økning på 3,8% i familie inntekt for kvinner og 4,4% økning for menn.</p>
+<p>Når det kommer til forholdet mellom høyde og inntekt, har <span class="citation" data-cites="Deaton&amp;Arora2009">Deaton and Arora (<a href="#ref-Deaton&amp;Arora2009" role="doc-biblioref">2009</a>)</span> hentet data fra Gallup-Healthways Well-Being Index for å se på forholdet mellom høyde og inntekt. Ifølge <span class="citation" data-cites="Deaton&amp;Arora2009">Deaton and Arora (<a href="#ref-Deaton&amp;Arora2009" role="doc-biblioref">2009</a>)</span>, var menn som var over gjennomsnittlig høyde (177,8 cm) et trinn på stigen over menn som er under gjennomsnittlig høyde. For kvinner er forskjellen mindre. Kvinner under gjennomsnittlig høyde (162,6 cm) ligger litt mindre enn en tidel av et trinn under kvinner med over gjennomsnittlig høyde. Forskjellene kan virke små, men sammenlignet med andre faktorer som påvirker stigen, er inntekt en viktig faktor <span class="citation" data-cites="Deaton&amp;Arora2009">(<a href="#ref-Deaton&amp;Arora2009" role="doc-biblioref">Deaton and Arora 2009</a>)</span>. Øker vi høyden med en ekstra tomme , på den såkalt stigen mht. effekten av en endring i inntekt, så vil hver ekstra tomme høyde medføre en økning på 3,8% i familie-inntekt for kvinner og 4,4% økning for menn.</p>
 </section>
 <section id="utdanning-og-høyde" class="level3">
 <h3 class="anchored" data-anchor-id="utdanning-og-høyde">Utdanning og høyde</h3>
-<p>Ifølge <span class="citation" data-cites="Case&amp;Paxson2008">Case and Paxson (<a href="#ref-Case&amp;Paxson2008" role="doc-biblioref">2008</a>)</span>, er det sammenheng mellom utdanning og høyde som fører til økt inntekt. Dette skyldes at høyere mennesker har større sannsynlighet for å ha nådd sitt fulle kognitive potensial enn lavere personer <span class="citation" data-cites="Case&amp;Paxson2008">(<a href="#ref-Case&amp;Paxson2008" role="doc-biblioref">Case and Paxson 2008</a>)</span>.</p>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
+<p>Ifølge <span class="citation" data-cites="case2008">(<a href="#ref-case2008" role="doc-biblioref"><strong>case2008?</strong></a>)</span>, er det sammenhengen mellom utdanning og høyde som fører til økt inntekt. Dette skyldes at høyere mennesker har større sannsynlighet for å ha nådd sitt fulle kognitive potensial enn lavere personer <span class="citation" data-cites="case2008">(<a href="#ref-case2008" role="doc-biblioref"><strong>case2008?</strong></a>)</span>.</p>
 </section>
 </section>
 <section id="eda-av-datasettet-heights-med-utgangspunkt-i-sammenheng-mellom-utdanning-og-inntekt" class="level2">
 <h2 class="anchored" data-anchor-id="eda-av-datasettet-heights-med-utgangspunkt-i-sammenheng-mellom-utdanning-og-inntekt">EDA av datasettet heights med utgangspunkt i sammenheng mellom utdanning og inntekt</h2>
-<p>Datasettet er kalt heights og er en del av pakken modelr, Wickham (2020), som er en utvidelspakke for statistikksystemet R, R Core Team (2021). Vi skal nå gjennomføre en EDA av datasettet med utgangspunkt i vår problemstilling som er sammenhengen mellom utdanning og inntekt ved bruk av kategorivariabel edu_fac:</p>
+<p>Datasettet er kalt heights og er en del av pakken modelr <span class="citation" data-cites="wickham2020">(<a href="#ref-wickham2020" role="doc-biblioref"><strong>wickham2020?</strong></a>)</span>, som er en utvidelspakke for statistikksystemet R, <span class="citation" data-cites="rcore2023">(<a href="#ref-rcore2023" role="doc-biblioref"><strong>rcore2023?</strong></a>)</span>. Vi skal nå gjennomføre en EDA av datasettet med utgangspunkt i vår problemstilling som er sammenhengen mellom utdanning og inntekt ved bruk av kategorivariabel edu_fac:</p>
 <ul>
 <li>not_hs: 0-11 års utdanning</li>
 <li>not_cc: 11-14 års utdanning</li>
@@ -114,23 +145,71 @@ div.csl-indent {
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<div id="fig-scatter-height-inc-ed" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="assignment_2_files/figure-html/fig-scatter-height-inc-ed-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figur&nbsp;1: Plot av utdanning mot inntekt.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-scatter-ed-inc" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="assignment_2_files/figure-html/fig-scatter-ed-inc-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figur&nbsp;2: ags Forslag: Plot av høyde mot inntekt. Utdanningsnivå er angitt vha. farge. Nå får vi illustrert tre variabler. Har satt en width lik 0.25 på geom_jitter s.a. det forhåpentlig blir klarer at hver søyle representerer en høyde. Benytter også en facet-wrap på kjønn, s.a. vi får vist en fjerde variabel.</figcaption>
+</figure>
+</div>
 </div>
 </div>
 <p>Vi ser at det er en sammenheng mellom inntekt og utdannelse. I figuren over ser vi at den linære regresjonslinjen viser en økning i inntekt for gitt lenger utdanning.</p>
 <p>Videre skal vi ved hjelp av fasetter se på om det finnes en sammenheng mellom høyde og inntekt i forhold til hvilken utdanningsgruppe man er i.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<div id="fig-scatter-facet-height-inc-ed" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="assignment_2_files/figure-html/fig-scatter-facet-height-inc-ed-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figur&nbsp;3: Her brukes farge bare til pynt. Grad av utdannelse fremkommer klart av sub-plot. Hva med å bruke farge til å angi kjønn?</figcaption>
+</figure>
 </div>
 </div>
-<p>Av fasettene ser man at de ulike utdanningsgruppene reagerer ulikt på hvordan høyde påvirker hvilke inntekt man har. Vi kan se av den linjere regresjonslinjen i de ulike farsettene at en lavere utdannelsegruppe har et lavere “startpunkt” for inntekt, hvor dette gradvis øker om man er høyere.</p>
-<p>Det som skiller seg mest klart ut i de fire fasetene er at “not_hs” har en relativt flat linjer regresjonslinje, som tolkes til at dersom man ikke har fullført high school vil ikke man øke markant i inntekt dersom man er høyere.</p>
-<p>Vi ser også at i utdanningsgruppen “col_plus” er stigningstallet til den linjere regresjonslinjen brattere, og kan tolkes til at dersom man i denne katogorivariabelen vil man ha en større økning i inntekt i forhold til økning i høyde.</p>
-<p>Ser man på de to gjennverende katogorivariablene “not_cc” og “not_col” skiller ikke disse linjære regrisjonslinjene seg betraktelige fra hverandre i forhold til at man øker i inntekt gitt at man øker i høyde. Man ser av disse variablene at det er en økning i inntekt dersom man er høyere utdannet.</p>
+</div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<div id="fig-scatter-facet-height-inc-sex" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="assignment_2_files/figure-html/fig-scatter-facet-height-inc-sex-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figur&nbsp;4: Sammenhengen mellom høyde og inntekt for de fire utdanningsgruppene. Farge angir observasjoner for hhv. menn og kvinner og tilhørende regresjonslinjer.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Hvis dere sammenligner informasjonsmengden i <a href="#fig-scatter-facet-height-inc-sex">Figur&nbsp;4</a> og <a href="#fig-scatter-facet-height-inc-ed">Figur&nbsp;3</a> så ser dere forhåpentligvis at <a href="#fig-scatter-facet-height-inc-sex">Figur&nbsp;4</a> gir mer innsikt med bruk av de samme elementene.</p>
+<p>Av fasettene ser man at de ulike utdanningsgruppene reagerer ulikt på hvordan høyde påvirker hvilke inntekt man har. Vi kan se av den linjere regresjonslinjen i de ulike farsettene at en lavere utdannelsegruppe har et lavere “startpunkt” for inntekt, hvor dette gradvis øker om man er høyere.</p>
+<p>Det som skiller seg mest klart ut i de fire fasetene er at “not_hs” har en relativt flat linjer regresjonslinje, som tolkes til at dersom man ikke har fullført high school vil ikke man øke markant i inntekt dersom man er høyere.</p>
+<p>Vi ser også at i utdanningsgruppen “col_plus” er stigningstallet til den lineære regresjonslinjen brattere, og kan tolkes til at dersom man i denne kategorivariabelen vil man ha en større økning i inntekt i forhold til økning i høyde.</p>
+<p>Ser man på de to gjenværende kategorivariablene “not_cc” og “not_col” skiller ikke disse lineære regresjonslinjene seg betraktelige fra hverandre i forhold til at man øker i inntekt gitt at man øker i høyde. Man ser av disse variablene at det er en økning i inntekt dersom man er høyere utdannet.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="assignment_2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Forstår det slik at det er <span class="citation" data-cites="case2008">(<a href="#ref-case2008" role="doc-biblioref"><strong>case2008?</strong></a>)</span> påståtte sammen heng mellom høyde og utdanning dere vil undersøke. Merk at sammenhengen går en veg, neppe noen som tror at dess mer utdanning du tar dess høyere blir du.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>hoydeNormInc <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(education)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> education)) <span class="sc">+</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sex)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-h-ed-sex" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="assignment_2_files/figure-html/fig-h-ed-sex-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figur&nbsp;5: Sammenhengen mellom høyde og utdanningsnivå. Det ser ut til å være en positiv sammenheng mellom høyde og utdanning for begge kjønn slik <span class="citation" data-cites="case2008">(<a href="#ref-case2008" role="doc-biblioref"><strong>case2008?</strong></a>)</span> hevder. Årsaken er sammenhengen mellom ernæring og høyde og mellom ernæring og utvikling av kognitive evner. Fargefyll angir hvor mange observasjoner vi har for hver kombinasjon av høyde og år utdanning.</figcaption>
+</figure>
+</div>
 </div>
 </div>
 <p>Fordelingen av menn &amp; kvinner “hoydeZeroInc”</p>
@@ -154,12 +233,12 @@ div.csl-indent {
 <tr class="even">
 <td style="text-align: left;">... male</td>
 <td style="text-align: left;">745</td>
-<td style="text-align: left;">43%</td>
+<td style="text-align: left;">42.8%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">... female</td>
 <td style="text-align: left;">995</td>
-<td style="text-align: left;">57%</td>
+<td style="text-align: left;">57.2%</td>
 </tr>
 </tbody>
 </table>
@@ -188,12 +267,12 @@ div.csl-indent {
 <tr class="even">
 <td style="text-align: left;">... male</td>
 <td style="text-align: left;">131</td>
-<td style="text-align: left;">92%</td>
+<td style="text-align: left;">91.6%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">... female</td>
 <td style="text-align: left;">12</td>
-<td style="text-align: left;">8%</td>
+<td style="text-align: left;">8.4%</td>
 </tr>
 </tbody>
 </table>
@@ -201,21 +280,45 @@ div.csl-indent {
 
 </div>
 </div>
-<p>Plottet under er en illustrasjon av hvilke innktekt “highinc”, “norminc” og “zeroinc” har, hvor vi skal videre se på hvilke andel menn &amp; kvinner som utgjør de ulike innteksgruppene.</p>
+<p>Plottet under er en illustrasjon av hvilke inntekt “highinc”, “norminc” og “zeroinc” har, hvor vi skal videre se på hvilke andel menn &amp; kvinner som utgjør de ulike innteksgruppene.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Får dere egentlig frem kjønnsforskjellene i det følgende plotet?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="assignment_2_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>I fordelingen “hoydeHighInc” ser man et markant skille i fordelingen i menn og kvinner. Menn utgjør 92% av fordelingen “hoydeHighInc”, mens kvinner utgjør 8% av fordelingen.</p>
 <p>I fordelingen “hoydeZeroInc” ser man at fordelingen mellom kvinner og menn er 43% menn og 57% Kvinner som utgjør fordelingen.</p>
 <p>Plottet under er ment som en ildustrasjon av hvordan “hoydeHightInc”(rød), “hoydeZeroInc”(blå) skiller seg fra “hoydeNormInc” med utgangspunkt i høyde &amp; utdanning. Dette plottet er ikke 100% representativt for fordelingene ettersom man ikke får plottet alle observarsjonene, men fungerer godt som en indikator for å vise skille i utdanning &amp; høyde. Man ser at dersom man er i fordelingen “hoydeZeroInc” skorer majoriteten av observasjonene lavest på utdanning &amp; høyde, mens man i “hoydeNormInc” skorer en større del av observasjonene høyere på utdanning &amp; høyde enn “hoydeZeroInc”. Når det kommer til “hoydeHighInc” skorer denne klarest høyst på utdanning &amp; høyde. Vi vil seinere i oppgaven se nærmere på dette i faktiske tall.</p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 10 rows containing missing values (`geom_point()`).</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Her bør dere bytte om på height og education</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ellers gir dere inntrykk av at mer utdanning fører til at man</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vokser i høyden.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fargekoding av income_class blir igjen smør på flesk. </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Vil foreslå facet på income_class og sex. Viser kjønnsforskjeller</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># klarere enn å bruke shape på punktene</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>hoyde <span class="sc">|&gt;</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(education)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> education), <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(sex<span class="sc">~</span>income_class)</span></code><button title="Kopier til utklipstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="assignment_2_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="assignment_2_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -238,8 +341,8 @@ div.csl-indent {
 <tr class="odd">
 <td style="text-align: left;">height</td>
 <td style="text-align: left;">5123</td>
-<td style="text-align: left;">67</td>
-<td style="text-align: left;">4</td>
+<td style="text-align: left;">67.224</td>
+<td style="text-align: left;">4.042</td>
 <td style="text-align: left;">52</td>
 <td style="text-align: left;">64</td>
 <td style="text-align: left;">70</td>
@@ -248,8 +351,8 @@ div.csl-indent {
 <tr class="even">
 <td style="text-align: left;">education</td>
 <td style="text-align: left;">5121</td>
-<td style="text-align: left;">13</td>
-<td style="text-align: left;">2.5</td>
+<td style="text-align: left;">13.481</td>
+<td style="text-align: left;">2.529</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">12</td>
 <td style="text-align: left;">16</td>
@@ -268,7 +371,7 @@ div.csl-indent {
 <tr class="even">
 <td style="text-align: left;">... male</td>
 <td style="text-align: left;">2526</td>
-<td style="text-align: left;">49%</td>
+<td style="text-align: left;">49.3%</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
@@ -278,7 +381,7 @@ div.csl-indent {
 <tr class="odd">
 <td style="text-align: left;">... female</td>
 <td style="text-align: left;">2597</td>
-<td style="text-align: left;">51%</td>
+<td style="text-align: left;">50.7%</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
@@ -312,8 +415,8 @@ div.csl-indent {
 <tr class="odd">
 <td style="text-align: left;">height</td>
 <td style="text-align: left;">143</td>
-<td style="text-align: left;">71</td>
-<td style="text-align: left;">3.1</td>
+<td style="text-align: left;">70.503</td>
+<td style="text-align: left;">3.142</td>
 <td style="text-align: left;">61</td>
 <td style="text-align: left;">69</td>
 <td style="text-align: left;">72</td>
@@ -322,8 +425,8 @@ div.csl-indent {
 <tr class="even">
 <td style="text-align: left;">education</td>
 <td style="text-align: left;">143</td>
-<td style="text-align: left;">17</td>
-<td style="text-align: left;">2.4</td>
+<td style="text-align: left;">16.678</td>
+<td style="text-align: left;">2.405</td>
 <td style="text-align: left;">9</td>
 <td style="text-align: left;">16</td>
 <td style="text-align: left;">18</td>
@@ -342,7 +445,7 @@ div.csl-indent {
 <tr class="even">
 <td style="text-align: left;">... male</td>
 <td style="text-align: left;">131</td>
-<td style="text-align: left;">92%</td>
+<td style="text-align: left;">91.6%</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
@@ -352,7 +455,7 @@ div.csl-indent {
 <tr class="odd">
 <td style="text-align: left;">... female</td>
 <td style="text-align: left;">12</td>
-<td style="text-align: left;">8%</td>
+<td style="text-align: left;">8.4%</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
@@ -386,7 +489,7 @@ div.csl-indent {
 <tr class="odd">
 <td style="text-align: left;">height</td>
 <td style="text-align: left;">1740</td>
-<td style="text-align: left;">66</td>
+<td style="text-align: left;">66.472</td>
 <td style="text-align: left;">4.1</td>
 <td style="text-align: left;">55</td>
 <td style="text-align: left;">63</td>
@@ -396,8 +499,8 @@ div.csl-indent {
 <tr class="even">
 <td style="text-align: left;">education</td>
 <td style="text-align: left;">1732</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: left;">2.4</td>
+<td style="text-align: left;">12.155</td>
+<td style="text-align: left;">2.365</td>
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">11</td>
 <td style="text-align: left;">13</td>
@@ -416,7 +519,7 @@ div.csl-indent {
 <tr class="even">
 <td style="text-align: left;">... male</td>
 <td style="text-align: left;">745</td>
-<td style="text-align: left;">43%</td>
+<td style="text-align: left;">42.8%</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
@@ -426,7 +529,7 @@ div.csl-indent {
 <tr class="odd">
 <td style="text-align: left;">... female</td>
 <td style="text-align: left;">995</td>
-<td style="text-align: left;">57%</td>
+<td style="text-align: left;">57.2%</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;"></td>
@@ -441,15 +544,12 @@ div.csl-indent {
 </div>
 <p>I fordelingen “hoydeZeroInc” ser man at man totalt har 1740 observasjoner, med 8 NA verdier tilknyttet utdanning. Vi kan lese ut av tabellen over at i denne fordelingen er gjennomsnittshøyden 66 tommer eller 167.64cm med et standaravvik på 4.1 tommer eller 10.414cm, mens gjennomsnittlig utdanningsnivå er 12år med et standaravvik på 2.4 år.</p>
 <p>Ser man da tilbake på plottet som ble presantert lengre oppe ser man at med faktiske tall vil plottet være representativt. “hoydeHightInc” skiller seg i den forstand fra “hoydeNormInc” i forhold til utdanning &amp; høyde at man er høyere utdannet og høyere. Man er i “hoydeHighInc” 10,16 cm høyere og 4 år høyere utdannet enn “hoydeNormInc” gjennomsnittslig. Når det kommer til “hoydeZeroInc” skiller dette seg fra “hoydeNormInc” i den forstand at man gjennomsnittslig er 2,54cm lavere og 1 år lavere utdannet.</p>
-<p>Vi kan med utgangspunkt i disse observarsjonene sett vekk i fra andre faktorer se at utdanning &amp; høyde har en innvirkning på hvilke inntekt mann har. Høyere høyde &amp; utdanning vil gi en effekt i økt inntekt. .</p>
+<p>Vi kan med utgangspunkt i disse observarsjonene sett vekk i fra andre faktorer se at utdanning &amp; høyde har en innvirkning på hvilke inntekt mann har. Høyere høyde &amp; utdanning vil gi en effekt i økt inntekt.</p>
 
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-Case&amp;Paxson2008" class="csl-entry" role="listitem">
-Case, Anne, and Christina Paxson. 2008. <span>“<span>Stature and Status: Height, Ability, and Labor Market Outcomes. | Journal of Political Economy | EBSCOhost</span>.”</span> https://openurl.ebsco.com/contentitem/doi:10.1086%2F589524?sid=ebsco:plink:crawler&amp;id=ebsco:doi:10.1086%2F589524.
-</div>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Referanser</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Deaton&amp;Arora2009" class="csl-entry" role="listitem">
 Deaton, Angus, and Raksha Arora. 2009. <span>“Life at the Top: <span>The</span> Benefits of Height.”</span> <em>Economics &amp; Human Biology</em> 7 (2): 133–36.
 </div>
@@ -509,12 +609,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Kopiert!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
